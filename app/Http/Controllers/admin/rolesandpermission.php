@@ -72,6 +72,6 @@ class rolesandpermission extends Controller
     function show_rolepermission()
     {
         $data = Permission_to_user::all();
-        return view('admin.assign_roles')->with('permission', $data);
+        return view('admin.assign_roles')->with('value', $data);
     }
 }

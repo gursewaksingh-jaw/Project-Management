@@ -5,6 +5,8 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Permission_to_user;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Illuminate\Support\Facades\Auth;
@@ -103,7 +105,8 @@ class userSignup extends Controller
     public function userlist()
     {
         $user = User::all();
-        return view('admin.assign_roles')->with('list', $user);
+        $data = Role::all();
+        return view('admin.assign_roles')->with('list', $user)->with('value', $data);
     }
 
 
@@ -152,6 +155,26 @@ class userSignup extends Controller
         }
     }
 
+    public function updaterole(Request $req)
+    {
+        // $req->validate([
+        //     'role' => 'required',
+        //     'user' => 'required',
+        // ]);
+        // dd($req->all());
+
+        $userid = $req->users;
+        $user = User::find($req->id)
+            ->where('id', $userid);
+
+        $user->user_type = $req->roles;
+        $result = $user->save();
+        if ($result) {
+            return redirect('user-lists')->with('success', 'Updated successfully');
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
+    }
 
     //     $user = new User;
     //     $user->name=$req->name;

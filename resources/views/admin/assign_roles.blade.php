@@ -66,6 +66,7 @@
                                         <option selected="" disabled="">Choose option</option>
                                         @foreach($list as $users)
                                         <option value="{{$users->id}}">{{$users->name}}</option>
+
                                         @endforeach
 
                                     </select>
@@ -92,10 +93,10 @@
                                         class="form-control custom-select{{($errors->first('icons') ? " form-error" : "")}}"" name="
                                         roles">
                                         <option selected="" disabled="">Choose option</option>
-                                        <option value="1">Super Admin</option>
-                                        <option value="2">Admin</option>
-                                        <option value="3">User</option>
-                                        <option value="4">Staff</option>
+                                        @foreach($value as $val)
+                                        <option value="{{$val->id}}">{{$val->role}}</option>
+                                        @endforeach
+
 
                                     </select>
 

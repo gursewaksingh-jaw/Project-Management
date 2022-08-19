@@ -284,6 +284,10 @@ Route::get("assign-roles", [userSignup::class, 'userlist']);
 Route::get("user/edit/{id}", [userSignup::class, 'usersview']);
 
 Route::post("updateduser", [userSignup::class, 'updateuser']);
+
+Route::post("assigned", [userSignup::class, 'updaterole']);
+
+
 // ------------------------------------Roles and Permission--------------------------------------------
 
 Route::post("createdroles", [rolesandpermission::class, 'addrole']);
