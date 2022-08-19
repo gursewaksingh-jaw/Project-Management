@@ -1,0 +1,344 @@
+
+Learning Task (8-hours)
+
+1.Worked on Page Management 
+  a.CRUD operation for Page Management.
+  b.displayed the content on frontend pages.
+
+2.Worked on some page layouts
+  a.contact us page.
+  b.faq page
+
+3.Worked on authenticating admin pages.
+
+ // public function displaytitle(){
+        //     $title =Page::where('')
+
+        // 
+
+----------------------------------------------------------------------------
+#wrapper {
+  background: #ccc;
+  display:none
+} 
+  <script>
+  
+$('#error').click(function(){
+    $('#wrapper').toggle();
+});
+</script>
+
+
+-----------------------------------------------------------------------------
+Schema::create('roles',function(Blueprint $table){
+
+    $table->bigIncrements('id');
+    $table->string('name');
+    $table->timestamps();
+
+});
+
+Schema::create('permissions',function(Blueprint $table){
+
+    $table->unsignedBigInteger('role_id');
+    $table->foreign('role_id')->references('id')->on('roles');
+    $table->string('permission');
+
+});
+
+----------------------------------------------------------------------------------
+ck editor 5 classic build 
+=========================
+
+<script>
+ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .catch( error => {
+         console.error( error );
+     } );
+</script>
+
+ck editor 4 with full specification
+====================================
+
+<script>
+ 
+CKEDITOR.replace('editor');
+ CKFinder.setupCKEditor(editor);
+</script>
+
+ck editor 5 classic build (changing the background )
+====================================================
+
+<script>
+
+ClassicEditor
+.create($("#editor")[0], {
+        language: $("html").attr("lang"),
+        alignment: {
+            options: ['left', 'right']
+        },
+        autoParagraph: false
+    })
+    .then(editor => {
+        myEditor = editor;
+        myEditor.model.document.on('change', (event) => {
+            $("#editor").val(myEditor.getData());
+        });
+
+        $(".ck-content").css("background-color", "rgb(52, 58, 64)");
+        $(".ck-content p").css("color", "white");
+        $(".ck.ck-editor__main,.ck-editor__editable_inline").css("background-color",
+            "rgb(52, 58, 64)!important;");
+        $(".ck-toolbar").css("background-color", "rgb(52, 58, 64)");
+        $(".ck-button__label, .ck-icon").css("color", "white");
+
+        myEditor.editing.view.document.on('change:isFocused', (evt, data, isFocused) => {
+            if (isFocused) // blur
+            {
+                $(".ck-content").css("background-color", "rgb(52, 58, 64)");
+                $(".ck.ck-editor__main,.ck-editor__editable").css("background",
+                    "rgb(52, 58, 64)!important;");
+            } else {
+                $(".ck-content p").css("cssText",
+                    "background-color: rgb(52, 58, 64) !important; margin: 0px !important; padding: 8px 6px; "
+                );
+
+                //this one not working
+                $(".ck-editor__editable").css("cssText",
+                    "background-color: rgb(52, 58, 64) !important; padding : 0px;");
+
+            }
+        });
+        console.log(myEditor);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+
+
+
+   public function get_menu($p_menu = 0)
+    {
+
+        $menu = DB::table('menus')->where('p_menu', $p_menu)->get();
+        if (count($menu) > 0) {
+            $html = "<ul>";
+            foreach ($menu as $key => $value) {
+                $html .= '<li style="list-style-type: none; "class="lists" id="menu_' . $value->id . '"><i class="nav-icon far fa-' . $value->icons . '"></i>' . $value->menu_title . '<div class="action"><a href="{{url(menus/delete' . $value->id . ')}}"  ><i class="nav-icon far fa fa-trash"></i></a><a href="{{url(menus/delete' . $value->id . ')}}"style=""><i class="nav-icon far fa fa-edit " ></i></a></div></li> ';
+                $html .= $this->get_menu($value->id);
+            }
+            $html .= "</ul>";
+            return $html;
+        } else {
+            return false;
+        }
+    }
+
+----------------------------------------------------------------------------------
+class="sidebar-mini layout-fixed control-sidebar-slide-open dark-mode"
+
+sidebar-mini layout-fixed control-sidebar-slide-open
+-----------------------------------------------------------------------------------
+
+
+Learning Task (8-hours)
+
+1. Changed the functionality of menu management.
+
+   a. added menu management.
+   b.displayed the lis of menus and sub menus.
+   c. Worked on Update menu.
+
+2.Worked on Page Management .
+
+3.Download ck-editor and integrated in project .
+
+ a.create page
+ b.update page
+ c.Tried to change the theme.
+
+
+Learning Task:
+
+1.Will work on changing the theme of ck-editor.
+2.will work on updating the menu and sub menu.
+3.will work on some layouts.
+
+
+
+Learning Task (8-hours)
+
+1.Worked on Page Management.
+  a. displayed the content on faq page.
+  b.a. displayed the content on conact us page.
+
+2.Worked on changing the theme of ck-editor.
+ a.create page
+ b.update page
+
+3. Worked validating each forms.
+
+4. Resolved the error regarding page update form.
+
+5.   
+   ------------------------------------------------------------------------
+ Learning Task (8-hours)
+
+1. created new pages and worked on the page layouts
+  a. all posts.
+  b. create posts.
+
+
+2.Worked on Post Management.
+  a. created the form and added the posts.
+  b. displayed the post on all post page.
+  c. added ck-editor in add post.
+
+3. worked on  page management and changed the layout of page management 
+   a.Worked on displaying and hiding the pages on header page.
+   b.Admin can display or hide the page.
+   c.add page form and validate it.
+   d.update page form.
+   
+4. Remaining time i went for portfolio video. 
+
+
+ Learning Task
+
+ 1. Will work on updating the posts.
+ 2. Will work on layouts of the pages.
+ 3. Will try resolve the css loading error.
+
+------------------------------------------------------------------------------
+ Learning Task (8-hours)
+
+ 1. worked ck-editor image uploaded
+     a. installed ckfinder
+     b. tried to applied on create post form.
+ 
+
+2. worked on displaying recursive menu.
+
+3. worked on create post and all post page layout.
+
+
+ Learning Task
+
+ 1. Will work on updating the posts.
+ 2. Will work on updating the menu.
+ 3. Will try resolve the css loading error.
+ 4. Will work on resolving the error in ckeditor image upload.
+
+-------------------------------------------------------------------------------
+12-08-22
+
+Learning Task(4- hours)
+
+1. Displayed the recursive list and set up the layout
+2. Tried jquery sorting for menu management
+3. Tried update the menu list
+
+ Learning Task
+
+ 1. Will work on updating the posts.
+ 2. Will work on updating the menu.
+ 3. Will try resolve the css loading error.
+ 4. Will work on resolving the error in ckeditor image upload.
+
+-------------------------------------------------------------------------------
+13-08-22
+
+Learning Task( 3 hours)
+
+1. Worked on deleting the menu 
+2. Worked on updating the menu 
+3. tried to resolve the ck-editor imagee upload issue.
+4.rest time contributed to management task.
+
+Management Task (5 hours)
+
+1. Made rangoli for independence day celebration
+2. Helped in decorating 
+3. Attended the general meeting.
+
+
+Learning Task
+
+1. Will work on jquery sorting for menu management.
+2. Will work on updating the posts.
+--------------------------------------------------------------------------------
+16-08-22
+
+Learning Task (8 hours)
+
+1. Worked on menu management.
+    a. menu titles and parent menu can be updated by admin.
+    b. particular menu title can be deleted by admin.
+
+2. Worked on displaying user lists
+   a.admin can delete user.
+
+3. Worked on view all posts
+   a. displayed user name and time.
+
+Learning Task
+
+1. Will Work on roles and permissions
+2. Will Work on some layouts
+3. Will work on jquery sorting for menu management.
+4. Will work on updating the users
+
+
+
+
+------------------------------------------------------------------------------
+
+17 -08-22
+Learning Task (8 -hours)
+
+1. Created role and permission page.
+
+2. Worked on page layouts.
+  a.admin log in
+  b user registeration
+  c.update slider
+
+3. Worked on user authentication.
+4. Resolved the error regarding ck-editor image upload on add post .
+ 
+5. Transfer the files from my pc .
+
+
+Learning Task
+
+1. Will work on jquery sorting on.
+     a. Menu Management.
+     b. Slider Slide Management.
+2. Will merge the code with akash sir
+
+-----------------------------------------------------------------------------
+
+18 -08-22
+
+Learning Task (8-hours)
+
+1. Resolved the error regarding ck-editor image upload for page management.
+  a. User can add image through ck editor.
+  b. User can update image through ck editor.
+
+2. Worked on jquery sorting on slider management.
+  a. drag and drop is working.
+
+3. Worked on roles and permission
+  a.admin can add roles
+  b.admin can add permissions  
+  c.admin can assign permission to roles
+
+ Learning Task
+
+1. Will work on updating users.
+2. Will work on adding order no. of a slider in database .
+2. Will merge the code with akash sir.
+
